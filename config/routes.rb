@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   # Photo routes
   get("/photos", { controller: "photos", action: "index"})
+  post("/add_photo", {controller: "photos", action: "create"})
 end
