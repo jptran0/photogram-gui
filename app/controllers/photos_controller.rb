@@ -5,6 +5,8 @@ class PhotosController < ApplicationController
 
   def show
     @photo = Photo.where({id: params.fetch("id")})[0]
+
+    @comments = @photo.comments.order({ created_at: :desc })
     render template: "photos/show"
   end
 
