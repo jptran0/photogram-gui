@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
   def index
-    render template: "users_templates/index"
+    render template: "users/index"
   end
 
   def show
     @user = User.where({username: params.fetch("username")})[0]
-    render template: "users_templates/show"
+    render template: "users/show"
   end
 
   def create
