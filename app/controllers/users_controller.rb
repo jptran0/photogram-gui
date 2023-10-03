@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     
     if user.valid?
       user.save
-      redirect_to "/users", {notice: "User added successfully."}
+      redirect_to "/users/#{user.username}", {notice: "User added successfully."}
     else
       redirect_to "/users", {alert: user.errors.full_messages.to_sentence}
     end
@@ -28,9 +28,9 @@ class UsersController < ApplicationController
 
     if user.valid?
       user.save
-      redirect_to "/users/#{user.username}", {notice: "Username updated successfully."}
+      redirect_to "/users/#{user.username}", notice: "Username updated successfully."
     else
-      redirect_to "/users/#{user.username}", {alert: user.errors.full_messages.to_sentence}
+      redirect_to "/users/#{user.username}", alert: user.errors.full_messages.to_sentence
     end
   end
 end

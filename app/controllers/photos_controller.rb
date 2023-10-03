@@ -20,7 +20,7 @@ class PhotosController < ApplicationController
 
     if photo.valid?
       photo.save
-      redirect_to "/photos", notice: "Photo added successfully."
+      redirect_to "/photos/#{photo.id}", notice: "Photo added successfully."
     else
       redirect_to "/photos", alert: photo.errors.full_messages.to_sentence
     end
