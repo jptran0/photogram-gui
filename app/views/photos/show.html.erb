@@ -17,7 +17,7 @@
 
   <dt>Edit photo</dt>
   <dd>
-    <form action="/update_photo" method="post">
+    <form action="/update_photo/<%= @photo.id %>" method="post">
       <label for="image">Image</label>
       <input type="text" id="image" name="image" value="<%= @photo.image %>">
 
@@ -25,7 +25,6 @@
       <textarea name="caption" id="caption"><%= @photo.caption %></textarea>
 
       <input type="hidden" name="user_id" value="<%= @photo.owner_id %>">
-      <input type="hidden" name="photo_id" value="<%= @photo.id %>">
 
       <button>Update photo</button>
     </form>
