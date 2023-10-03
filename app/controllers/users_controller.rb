@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.where({id: params.fetch("user_id")})[0]
+    @user = User.where({id: params.fetch("id")})[0]
 
     @user.username = params.fetch("username")
 

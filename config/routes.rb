@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get("/users/:username", {controller: "users", action: "show"})
 
   post("/add_user", {controller: "users", action: "create"})
-  post("/edit_user", {controller: "users", action: "update"})
+  post("/edit_user/:id", {controller: "users", action: "update"})
 
   # Photo routes
   get("/photos", { controller: "photos", action: "index"})
