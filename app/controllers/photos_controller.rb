@@ -3,6 +3,11 @@ class PhotosController < ApplicationController
     render template: "photos/index"
   end
 
+  def show
+    @photo = Photo.where({id: params.fetch("id")})[0]
+    render template: "photos/show"
+  end
+
   def create
     @photo = Photo.new
 
