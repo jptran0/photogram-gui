@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   post("/edit_user", {controller: "users", action: "update"})
 
   # Photo routes
+  get("/photos", { controller: "photos", action: "index"})
 end
