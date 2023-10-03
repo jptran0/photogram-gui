@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   def index
+    @photos = Photo.order({created_at: :desc})
     render template: "photos/index"
   end
 

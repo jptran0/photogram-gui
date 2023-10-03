@@ -24,7 +24,7 @@
     <th></th>
   </tr>
   
-  <% Photo.all.each do |photo| %>
+  <% @photos.each do |photo| %>
     <tr>
       <td>
         <img src="<%= photo.image %>">
