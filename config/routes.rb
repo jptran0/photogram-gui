@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get("/photos", { controller: "photos", action: "index"})
   get("/photos/:id", { controller: "photos", action: "show" })
   post("/add_photo", {controller: "photos", action: "create"})
+  post("/update_photo", {controller: "photos", action: "update"})
 end

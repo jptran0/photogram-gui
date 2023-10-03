@@ -25,6 +25,7 @@
       <textarea name="caption" id="caption"><%= @photo.caption %></textarea>
 
       <input type="hidden" name="user_id" value="<%= @photo.owner_id %>">
+      <input type="hidden" name="photo_id" value="<%= @photo.id %>">
 
       <button>Update photo</button>
     </form>
@@ -63,7 +64,7 @@
 </table>
 
 <h3>Add a new comment</h3>
-<form action="/add_comment">
+<form action="/add_comment" method="post">
   <label for="photo_id">Photo ID</label>
   <input type="text" id="photo_id" name="photo_id" value="<%= @photo.id %>">
 
