@@ -9,27 +9,27 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new
-    @user.username = params.fetch("username")
+    user = User.new
+    user.username = params.fetch("username")
     
-    if @user.valid?
-      @user.save
+    if user.valid?
+      user.save
       redirect_to "/users", {notice: "User added successfully."}
     else
-      redirect_to "/users", {alert: @user.errors.full_messages.to_sentence}
+      redirect_to "/users", {alert: user.errors.full_messages.to_sentence}
     end
   end
 
   def update
-    @user = User.where({id: params.fetch("id")})[0]
+    user = User.where({id: params.fetch("id")})[0]
 
-    @user.username = params.fetch("username")
+    user.username = params.fetch("username")
 
-    if @user.valid?
-      @user.save
-      redirect_to "/users/#{@user.username}", {notice: "Username updated successfully."}
+    if user.valid?
+      user.save
+      redirect_to "/users/#{user.username}", {notice: "Username updated successfully."}
     else
-      redirect_to "/users/#{@user.username}", {alert: @user.errors.full_messages.to_sentence}
+      redirect_to "/users/#{user.username}", {alert: user.errors.full_messages.to_sentence}
     end
   end
 end

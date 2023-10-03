@@ -9,31 +9,31 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new
+    photo = Photo.new
 
-    @photo.image = params.fetch("image")
-    @photo.caption = params.fetch("caption")
-    @photo.owner_id = params.fetch("user_id")
+    photo.image = params.fetch("image")
+    photo.caption = params.fetch("caption")
+    photo.owner_id = params.fetch("user_id")
 
-    if @photo.valid?
-      @photo.save
+    if photo.valid?
+      photo.save
       redirect_to "/photos", notice: "Photo added successfully."
     else
-      redirect_to "/photos", alert: @photo.errors.full_messages.to_sentence
+      redirect_to "/photos", alert: photo.errors.full_messages.to_sentence
     end
   end
 
   def update
-    @photo = Photo.where({id: params.fetch("id")})[0]
+    photo = Photo.where({id: params.fetch("id")})[0]
 
-    @photo.image = params.fetch("image")
-    @photo.caption = params.fetch("caption")
+    photo.image = params.fetch("image")
+    photo.caption = params.fetch("caption")
 
-    if @photo.valid?
-      @photo.save
+    if photo.valid?
+      photo.save
       redirect_to "/photos/#{params.fetch("id")}", notice: "Photo updated successfully."
     else
-      redirect_to "/photos/#{params.fetch("id")}", alert: @photo.errors.full_messages.to_sentence
+      redirect_to "/photos/#{params.fetch("id")}", alert: photo.errors.full_messages.to_sentence
     end
   end
 
